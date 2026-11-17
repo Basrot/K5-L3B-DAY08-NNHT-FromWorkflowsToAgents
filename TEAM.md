@@ -57,9 +57,10 @@ Sao chép mục dưới đây cho từng thành viên.
 
 ### Bằng chứng
 
-- Host tests: 79 passed, 248 deselected; student tests: 248 passed, 79 deselected.
+- Commit `837c75f` (`src/lab8/shapes/workflow.py`) và `ba4b326` (`src/tests/test_workflow.py`).
+- Host tests: 82 passed, 248 deselected; student tests: 248 passed, 82 deselected.
 - Crash suite: 20/20. Public benchmark: workflow 70/70, single 70/70, orchestrator 70/70, swarm 69/70.
-- `python -m lab8.check_submission`: 8 FAIL, 1 WARN;
+- `python -m lab8.check_submission`: 0 FAIL, 0 WARN.
 
 ## 2A202603732_TranTrongDucTai
 

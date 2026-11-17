@@ -30,9 +30,9 @@
   - `src/lab8/shapes/orchestrator.py`
   - `src/tests/test_orchestrator_handoff.py`: `test_orchestrator_handoff_allowlist_and_no_secret_or_pii_leak`, `test_orchestrator_ignores_untrusted_ticket_claims_across_all_seeds`, `test_orchestrator_passes_full_quote_for_caps_and_denials`, `test_orchestrator_crash_and_resume_preserves_single_refund`, `test_orchestrator_unknown_claim_fails_with_valid_trace`.
 - Kết quả chạy kiểm chứng trên máy:
-  - Cổng host sau khi tích hợp với nhóm (`uv run python -m pytest -q`): `79 passed, 248 deselected` (`0 failed`).
-  - Ma trận student cho `orchestrator` (`uv run python -m pytest -q -m student -o addopts= -k orchestrator`): `62 passed` (`0 failed`, đạt đủ T01–T14 trên 5 seed, gồm cả T11 retry và T12 crash-resume).
-  - Rà soát an toàn trace trên các shape đã có (`single`, `orchestrator`, `swarm`) trên 14 claim public × 5 seed (`11,22,33,44,55`): `orchestrator` đạt `pass_rate = 1.000` (70/70 trial, gồm cả `R-orchestrator-C-002-s55` nơi `swarm` trượt), `pass_5 = 1.000`, `seed_variance = 0.0`, `cost_per_success_vnd = 47.90`; 0 rò rỉ `CANARY_SECRET_*` / PII ở cả `single` (`30.36 VND`) và `orchestrator` *(số liệu chính thức đủ 4 shape sẽ chốt từ `src/reports/benchmark.json` ở CP5)*.
+  - Cổng host sau khi tích hợp đủ 4 shape với nhóm (`uv run python -m pytest -q`): `82 passed, 248 deselected` (`0 failed`); ma trận student toàn nhóm đạt `248/248 passed`.
+  - Ma trận student riêng cho `orchestrator` (`uv run python -m pytest -q -m student -o addopts= -k orchestrator`): `62 passed` (`0 failed`, đạt đủ T01–T14 trên 5 seed, gồm cả T11 retry và T12 crash-resume).
+  - Số liệu chính thức trong `src/reports/benchmark.json` trên 14 claim public × 5 seed (`11,22,33,44,55`): `orchestrator` đạt `pass_rate = 1.000` (70/70 trial, gồm cả `R-orchestrator-C-002-s55` nơi `swarm` trượt), `pass_5 = 1.000`, `seed_variance = 0.0`, `cost_per_success_vnd = 47.90`; 0 rò rỉ `CANARY_SECRET_*` / PII trên toàn bộ file trace.
 
 ## 5. Công cụ AI đã dùng
 
@@ -41,4 +41,4 @@
 
 ## 6. Tự đánh giá
 
-Em đã hoàn thành phần cài đặt Shape C (`orchestrator`), xử lý lọc dữ liệu `handoff` theo allowlist và viết thêm các test kiểm tra rò rỉ secret, PII cùng kịch bản crash. Khi chạy kiểm tra trên máy thì cả 62 test của `orchestrator` và các test cổng host đều pass, mở thử các file trace trong `src/traces/` cũng không thấy lọt `parent_secret` hay thông tin cá nhân của đơn hàng. Phần còn lại em cần phối hợp cùng nhóm là chờ gộp xong `workflow` để chạy benchmark đủ bốn shape và tự kiểm tra thêm trên bộ `student_drop` khi có dữ liệu.
+Em đã hoàn thành phần cài đặt Shape C (`orchestrator`), xử lý lọc dữ liệu `handoff` theo allowlist và viết thêm các test kiểm tra rò rỉ secret, PII cùng kịch bản crash. Khi chạy kiểm tra sau khi nhóm ghép đủ bốn shape, cả 62/62 test của `orchestrator`, 248/248 test student và 82 test cổng host đều pass, rà các file trace sinh ra cũng không bị lọt `parent_secret` hay thông tin cá nhân của đơn hàng. Trên benchmark public, `orchestrator` đạt 70/70 trial nhưng tốn chi phí mô phỏng cao hơn `workflow` (47,90 so với 27,86 VND) nên em thống nhất cùng nhóm chọn `workflow` theo tiêu chí dùng kiến trúc ít tự chủ nhất mà vẫn giải quyết đúng bài toán; giới hạn còn lại là nhóm chưa có bộ hidden để tự đối chiếu thêm ngoài dữ liệu public.
