@@ -30,7 +30,7 @@ Gợi ý chia vai:
 | Thiều Thế Ngọc | workflow + integration | | |
 | Trần Trọng Đức Tài | single | | |
 | Đào Ngọc Hân | orchestrator + handoff | | |
-| Nguyễn Gia Nam | ledger + evaluation | | |
+| Nguyễn Gia Nam | ledger + evaluation | e67183f | `test_approval_and_order_caps_apply_across_successive_claims`; `test_repeated_expired_approval_denial_never_writes_refund` |
 
 ## Cá nhân
 
@@ -94,8 +94,10 @@ Sao chép mục dưới đây cho từng thành viên.
 
 ### Đóng góp cụ thể
 
--
+- Thêm hai test host cho hạn mức hoàn theo đơn, giới hạn approval và retry sau khi approval hết hạn.
+- Chạy crash suite 20 điểm và lưu báo cáo do công cụ sinh ra.
 
 ### Bằng chứng
 
--
+- Commit kỹ thuật: `e67183f`.
+- `src/tests/test_ledger_order_budget.py`; `src/reports/crash.json` (`crash_safety: 20/20`).
