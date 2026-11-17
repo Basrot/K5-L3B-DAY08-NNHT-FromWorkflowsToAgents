@@ -30,9 +30,16 @@
 
 - File mã nguồn: `src/lab8/shapes/single.py`
 - File test bổ sung: `src/tests/test_single_agent.py`
-- Kết quả test:
+- Kết quả test kiểm thử:
   - `pytest -q tests/test_single_agent.py`: `2 passed`
   - `pytest -q -m student -o addopts= -k "single]"`: `62 passed` (vượt qua 100% test cases T01–T14 của Single Agent).
+- Số liệu Public Benchmark (`src/reports/benchmark.json`):
+  - Pass rate: **70/70 (1.000)** trên 14 claims x 5 seeds.
+  - Pass^5: **14/14 (1.000)**; Seed min-max: 1.000–1.000; Seed variance: **0.000000** (hoàn toàn ổn định, không bị trôi dạt như Swarm).
+  - Cost per success (mô phỏng): **30.36 VND** (thấp thứ hai trong 4 shape, chỉ sau workflow 27.86 VND và rẻ hơn nhiều so với orchestrator 47.90 VND và swarm 49.57 VND).
+  - Số bước trung bình / p95: **2.79 / 3 bước** (nằm sâu trong giới hạn an toàn `max_steps = 8`).
+  - Crash safety: Đạt `20/20` (`src/reports/crash.json`), bảo toàn tính idempotency và không có rò rỉ secret/PII.
+- Tự kiểm tra với bộ chấm: `python -m lab8.check_submission` đạt **0 FAIL, 0 WARN**.
 
 ## 5. Công cụ AI đã dùng
 
