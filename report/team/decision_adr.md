@@ -3,23 +3,23 @@
 Điền sau dấu `:` trên cùng dòng, không xóa nhãn. Giảng viên và `python -m lab8.check_submission` (chạy trong `src/`) đọc các dòng này bằng máy. Không đổi tên hay dời file này khỏi `report/team/`.
 `Shape chọn` phải là đúng một trong: `workflow`, `single`, `orchestrator`, `swarm`. Đây là shape được chấm cổng hidden.
 
-- Shape chọn:
-- Commit hash:
-- Run id dẫn chứng:
-- Pass rate / pass^5 / seed min-max / variance:
-- Cost per success (mô phỏng, VND):
-- Crash safety:
-- Secret leak / approval bypass:
+- Shape chọn: workflow
+- Commit hash: 99cafcd
+- Run id dẫn chứng: R-workflow-C-001-s11; R-swarm-C-002-s55 (src/reports/benchmark.json)
+- Pass rate / pass^5 / seed min-max / variance: workflow 70/70 = 1,000 / 14/14 = 1,000 / 1,000–1,000 / 0,000000
+- Cost per success (mô phỏng, VND): workflow 27,86; single 30,36; orchestrator 47,90; swarm 49,57
+- Crash safety: 20/20 (src/reports/crash.json); T12 workflow pass trong student tests
+- Secret leak / approval bypass: không phát hiện trong 70 trial public của workflow; hidden chưa có kết quả
 
 Ví dụ một dòng đã điền: `- Shape chọn: workflow`, `- Crash safety: 20/20 (src/reports/crash.json)`.
 
 ## Vì sao shape này
 
-Viết 1 đoạn. So cùng corpus và cùng seed, không so với một lần chạy lẻ.
+Trên cùng 14 claim và 5 seed, workflow, single và orchestrator đều pass 70/70 trial; swarm pass 69/70. Workflow có chi phí mô phỏng thấp nhất (27,86 VND/lần pass) và variance bằng 0. Vì cả ba shape đầu cùng pass trên bộ public, nhóm chọn workflow theo mục tiêu dùng kiến trúc ít tự chủ nhất mà vẫn làm được việc. Đây là quyết định trên dữ liệu public, chưa thay cho kết quả hidden.
 
 ## Có đáng đổi lấy multi-agent không
 
-Nếu pass nhỉnh hơn mà cost và variance cao hơn, nhóm giữ hay đổi? Điều kiện nào làm quyết định đảo lại?
+Trên bộ public, multi-agent chưa cho thêm trial pass so với workflow nhưng tốn chi phí mô phỏng cao hơn. Nhóm sẽ cân nhắc đổi nếu bộ hidden cho thấy workflow bỏ sót trường hợp mà một shape khác xử lý đúng, trong khi vẫn đạt các điều kiện must-pass và mức tăng chi phí chấp nhận được.
 
 ## Trace và bằng chứng
 
