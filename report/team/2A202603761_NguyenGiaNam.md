@@ -15,6 +15,7 @@
 
 - Thêm hai test về giới hạn hoàn tiền theo đơn và approval hết hạn trong `src/tests/test_ledger_order_budget.py`.
 - Chạy crash suite, đo swarm và benchmark tạm ba shape đã có. Workflow chưa hoàn thiện nên chưa chạy benchmark cuối.
+- Làm ablation R2: so swarm gốc với bản chỉ dùng số ngày trễ từ order, rồi ghi kết quả vào research card.
 
 ## 4. Bằng chứng
 
@@ -23,11 +24,12 @@
 - `python -m pytest -q`: 56 passed, 248 deselected. `python -m lab8.crash_test --count 20 --out reports/crash.json`: 20/20.
 - `src/reports/swarm_baseline.json`: swarm pass 69/70 trial; trial trượt là `R-swarm-C-002-s55`. Đây chỉ là baseline, chưa phải benchmark bốn shape.
 - `src/reports/partial_benchmark.json`: cùng 14 claim và 5 seed, single và orchestrator đều pass 70/70, swarm pass 69/70. Chi phí mô phỏng mỗi lần thành công lần lượt là 30,36; 47,90; 49,57 VND. Đây là kết quả tạm, chưa có workflow.
+- `src/reports/r2_ablation.json`: swarm gốc pass 69/70, bản `swarm_order_only` pass 70/70. Test ablation: `src/tests/test_swarm_ticket_ablation.py`.
 
 ## 5. Công cụ AI đã dùng
 
-- Em dùng Codex để đọc yêu cầu, hỗ trợ viết test và báo cáo. Sau đó em tự chạy lại hai test mới, cổng host và crash suite trên máy: 2 test pass, 56 test host pass và crash 20/20. Codex chạy phần benchmark tạm; em cần tự xem lại số liệu trước khi nộp.
+- Em dùng Codex để đọc yêu cầu, hỗ trợ viết test, ablation và báo cáo. Sau đó em tự chạy lại hai test ledger, cổng host và crash suite trên máy: 2 test pass, 56 test host pass và crash 20/20. Codex chạy benchmark và ablation; em cần tự xem lại số liệu trước khi nộp.
 
 ## 6. Tự đánh giá
 
-Em đã hoàn thành hai test cho phần ledger và approval, sau đó tự chạy lại trên máy. Hai test mới đều pass, cổng host có 56 test pass và crash suite đạt 20/20 ở lần kiểm tra đó. Em đã có kết quả tạm của single, orchestrator và swarm; phần còn lại là kiểm workflow và chạy benchmark đủ bốn shape khi nhóm hoàn thiện.
+Em đã hoàn thành hai test cho phần ledger và approval, sau đó tự chạy lại trên máy. Hai test mới đều pass, cổng host có 56 test pass và crash suite đạt 20/20 ở lần kiểm tra đó. Em đã đo tạm ba shape và làm ablation R2; phần còn lại là kiểm workflow và chạy benchmark đủ bốn shape khi nhóm hoàn thiện.
