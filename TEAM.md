@@ -28,7 +28,7 @@ Gợi ý chia vai:
 | Người | Vai | Commit | Test đã thêm hoặc sửa |
 | --- | --- | --- | --- |
 | Thiều Thế Ngọc | workflow + integration | | |
-| Trần Trọng Đức Tài | single | | |
+| Trần Trọng Đức Tài | single | 41669db | `test_single_agent_ignores_ticket_hallucination`; `test_single_agent_trace_safety_and_contract` |
 | Đào Ngọc Hân | orchestrator + handoff | | |
 | Nguyễn Gia Nam | ledger + evaluation | e67183f | `test_approval_and_order_caps_apply_across_successive_claims`; `test_repeated_expired_approval_denial_never_writes_refund` |
 
@@ -66,11 +66,15 @@ Sao chép mục dưới đây cho từng thành viên.
 
 ### Đóng góp cụ thể
 
--
+- Cài đặt vòng lặp ReAct (`run_react`) với chặn cứng `max_steps=8` trong `src/lab8/shapes/single.py`.
+- Thiết kế hàm `decide(seen)` tra cứu đơn hàng và tính quyền lợi bám sát DB, chống hallucination ngày trễ từ ticket khách hàng.
+- Xử lý các nhánh `needs_info`, `escalated`, `denied`, `resolved`, truyền `crash_at` vào `durability.issue_refund` và flush trace trước khi crash.
 
 ### Bằng chứng
 
--
+- Commit `41669db` (`src/lab8/shapes/single.py`, `src/tests/test_single_agent.py`, `report/team/2A202603732_TranTrongDucTai.md`).
+- Test: `test_single_agent_ignores_ticket_hallucination`, `test_single_agent_trace_safety_and_contract`.
+- Kết quả: `pytest -k "single]"` đạt 62/62 passed.
 
 ## 2A202603779_DaoNgocHan
 
