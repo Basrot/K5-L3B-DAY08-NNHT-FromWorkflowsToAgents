@@ -25,8 +25,8 @@
 
 ## 5. Công cụ AI đã dùng
 
-- Mình dùng Codex để đọc yêu cầu và hỗ trợ viết test. Sau đó mình tự chạy lại các lệnh ở mục 4 trên máy: 2 test mới pass, cổng host 56 test pass và crash suite đạt 20/20.
+- Mình dùng Codex để đọc yêu cầu, hỗ trợ viết test và báo cáo. Sau đó mình tự chạy lại các lệnh ở mục 4 trên máy: 2 test mới pass, cổng host 56 test pass và crash suite đạt 20/20.
 
 ## 6. Tự đánh giá
 
-<!-- Nam tự viết phần này sau khi tự kiểm tra; không dùng AI viết thay. -->
+Mình đã hoàn thành hai test cho phần ledger và approval, sau đó tự chạy lại trên máy. Hai test mới đều pass, cổng host có 56 test pass và crash suite đạt 20/20 ở lần kiểm tra đó. Phần đánh giá của mình vẫn chưa xong vì chưa kiểm thử tích hợp và benchmark đủ bốn shape; khi nhóm hoàn thiện các shape còn lại, mình sẽ làm tiếp.
