@@ -14,22 +14,21 @@
 ## 3. Đóng góp cụ thể
 
 - Thêm hai test về giới hạn hoàn tiền theo đơn và approval hết hạn trong `src/tests/test_ledger_order_budget.py`.
-- Chạy crash suite, đo swarm và benchmark tạm ba shape đã có. Workflow chưa hoàn thiện nên chưa chạy benchmark cuối.
+- Chạy crash suite, kiểm các shape sau khi nhóm ghép code và chạy benchmark đủ bốn shape.
 - Làm ablation R2: so swarm gốc với bản chỉ dùng số ngày trễ từ order, rồi ghi kết quả vào research card.
 
 ## 4. Bằng chứng
 
 - Commit test: `e67183f`.
 - Test đã thêm: `test_approval_and_order_caps_apply_across_successive_claims` và `test_repeated_expired_approval_denial_never_writes_refund`.
-- `python -m pytest -q`: 56 passed, 248 deselected. `python -m lab8.crash_test --count 20 --out reports/crash.json`: 20/20.
-- `src/reports/swarm_baseline.json`: swarm pass 69/70 trial; trial trượt là `R-swarm-C-002-s55`. Đây chỉ là baseline, chưa phải benchmark bốn shape.
-- `src/reports/partial_benchmark.json`: cùng 14 claim và 5 seed, single và orchestrator đều pass 70/70, swarm pass 69/70. Chi phí mô phỏng mỗi lần thành công lần lượt là 30,36; 47,90; 49,57 VND. Đây là kết quả tạm, chưa có workflow.
+- Em tự chạy hai test mới, cổng host và crash suite: 2/2 pass, 56 host tests pass, crash 20/20. Sau khi nhóm ghép đủ shape, Codex chạy lại: 81 host tests và 248 student tests pass.
+- `src/reports/benchmark.json`: workflow, single, orchestrator đều pass 70/70 trial; swarm pass 69/70. Workflow có cost/success mô phỏng thấp nhất: 27,86 VND.
 - `src/reports/r2_ablation.json`: swarm gốc pass 69/70, bản `swarm_order_only` pass 70/70. Test ablation: `src/tests/test_swarm_ticket_ablation.py`.
 
 ## 5. Công cụ AI đã dùng
 
-- Em dùng Codex để đọc yêu cầu, hỗ trợ viết test, ablation và báo cáo. Sau đó em tự chạy lại hai test ledger, cổng host và crash suite trên máy: 2 test pass, 56 test host pass và crash 20/20. Codex chạy benchmark và ablation; em cần tự xem lại số liệu trước khi nộp.
+- Em dùng Codex để đọc yêu cầu, hỗ trợ viết test, ablation và báo cáo. Em đã tự chạy lại hai test ledger, cổng host và crash suite. Codex chạy benchmark cuối và ablation; em cần tự xem lại số liệu trước khi nộp.
 
 ## 6. Tự đánh giá
 
-Em đã hoàn thành hai test cho phần ledger và approval, sau đó tự chạy lại trên máy. Hai test mới đều pass, cổng host có 56 test pass và crash suite đạt 20/20 ở lần kiểm tra đó. Em đã đo tạm ba shape và làm ablation R2; phần còn lại là kiểm workflow và chạy benchmark đủ bốn shape khi nhóm hoàn thiện.
+Em đã hoàn thành hai test ledger và approval, tự chạy kiểm tra phần host và crash suite. Sau khi nhóm ghép đủ code, kết quả kiểm thử public và benchmark bốn shape đã có để so sánh. Em còn cần tự xem lại số liệu cuối và cùng nhóm giải thích lý do chọn workflow trong ADR.

@@ -6,7 +6,7 @@ Tối đa 5 trang ngoài phụ lục. Số liệu lấy từ file trong `src/rep
 
 - Tên nhóm: NNHT (Lớp L3B)
 - Thành viên: xem `TEAM.md`
-- Commit chốt (trùng `report/team/decision_adr.md`):
+- Commit chốt (trùng `report/team/decision_adr.md`): `99cafcd`
 
 ## 2. Mục tiêu và cách tiếp cận
 
@@ -42,9 +42,16 @@ Mô tả ba shape nhóm viết (workflow, single, orchestrator): mỗi shape đ�
 
 ## 4. Kết quả
 
-Bảng so sánh 4 shape trên bộ public (từ `src/reports/benchmark.json`): pass rate, pass^5, seed min–max, variance, cost/success, mean/p95 steps. Kèm crash safety (`src/reports/crash.json`) và, nếu có, kết quả tự kiểm trên `student_drop/`.
+Nhóm chạy bốn shape trên cùng 14 claim public và seed `11,22,33,44,55`. Số liệu dưới đây lấy từ `src/reports/benchmark.json`; chi phí là VND mô phỏng.
 
-...
+| Shape | Pass rate | Pass^5 | Seed min–max | Variance | Cost/success | Steps mean/p95 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Workflow | 70/70 | 14/14 | 1,000–1,000 | 0 | 27,86 | 4,43 / 5 |
+| Single | 70/70 | 14/14 | 1,000–1,000 | 0 | 30,36 | 2,79 / 3 |
+| Orchestrator | 70/70 | 14/14 | 1,000–1,000 | 0 | 47,90 | 3,71 / 4 |
+| Swarm | 69/70 | 13/14 | 0,929–1,000 | 0,000816 | 49,57 | 2,80 / 3 |
+
+`python -m pytest -q` đạt 81 test host pass; bộ student đạt 248/248. `src/reports/crash.json` ghi `crash_safety` 20/20. Swarm trượt C-002 ở seed 55 vì tin số ngày trễ trong ticket. Nhóm chưa có kết quả hidden; latency là `unavailable`.
 
 Quyết định kiến trúc và lý do: xem `report/team/decision_adr.md`. Phiếu nghiên cứu và ablation: xem `report/team/research_card.md`.
 
