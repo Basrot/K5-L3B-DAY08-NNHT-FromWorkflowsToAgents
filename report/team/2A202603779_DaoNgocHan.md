@@ -33,6 +33,7 @@
   - Cổng host sau khi tích hợp đủ 4 shape với nhóm (`uv run python -m pytest -q`): `82 passed, 248 deselected` (`0 failed`); ma trận student toàn nhóm đạt `248/248 passed`.
   - Ma trận student riêng cho `orchestrator` (`uv run python -m pytest -q -m student -o addopts= -k orchestrator`): `62 passed` (`0 failed`, đạt đủ T01–T14 trên 5 seed, gồm cả T11 retry và T12 crash-resume).
   - Số liệu chính thức trong `src/reports/benchmark.json` trên 14 claim public × 5 seed (`11,22,33,44,55`): `orchestrator` đạt `pass_rate = 1.000` (70/70 trial, gồm cả `R-orchestrator-C-002-s55` nơi `swarm` trượt), `pass_5 = 1.000`, `seed_variance = 0.0`, `cost_per_success_vnd = 47.90`; 0 rò rỉ `CANARY_SECRET_*` / PII trên toàn bộ file trace.
+  - Tự kiểm trên bộ `student_drop/` (40 claim không nhãn × 5 seed = 200 trial, lưu tại `src/reports/hidden_selfcheck.json`): `orchestrator` hoàn thành 200/200 trial với `error_trials = 0`, `leak_suspect_trials = 0`, quét 0 rò rỉ PII/canary trên toàn bộ trace và khớp 100% trạng thái với `workflow` và `single` (`denied: 95, resolved: 90, escalated: 10, needs_info: 5`).
 
 ## 5. Công cụ AI đã dùng
 
@@ -41,4 +42,4 @@
 
 ## 6. Tự đánh giá
 
-Em đã hoàn thành phần cài đặt Shape C (`orchestrator`), xử lý lọc dữ liệu `handoff` theo allowlist và viết thêm các test kiểm tra rò rỉ secret, PII cùng kịch bản crash. Khi chạy kiểm tra sau khi nhóm ghép đủ bốn shape, cả 62/62 test của `orchestrator`, 248/248 test student và 82 test cổng host đều pass, rà các file trace sinh ra cũng không bị lọt `parent_secret` hay thông tin cá nhân của đơn hàng. Trên benchmark public, `orchestrator` đạt 70/70 trial nhưng tốn chi phí mô phỏng cao hơn `workflow` (47,90 so với 27,86 VND) nên em thống nhất cùng nhóm chọn `workflow` theo tiêu chí dùng kiến trúc ít tự chủ nhất mà vẫn giải quyết đúng bài toán; giới hạn còn lại là nhóm chưa có bộ hidden để tự đối chiếu thêm ngoài dữ liệu public.
+Em đã hoàn thành phần cài đặt Shape C (`orchestrator`), xử lý lọc dữ liệu `handoff` theo allowlist và viết thêm các test kiểm tra rò rỉ secret, PII cùng kịch bản crash. Khi chạy kiểm tra sau khi nhóm ghép đủ bốn shape và tự kiểm trên bộ `student_drop`, cả 62/62 test của `orchestrator`, 248/248 test student và 82 test cổng host đều pass; 200/200 trial tự kiểm hidden của `orchestrator` không phát sinh lỗi thực thi hay rò rỉ `parent_secret`, thông tin cá nhân trên trace. Trên benchmark public, `orchestrator` đạt 70/70 trial nhưng tốn chi phí mô phỏng cao hơn `workflow` (47,90 so với 27,86 VND) nên em thống nhất cùng nhóm chọn `workflow` theo tiêu chí dùng kiến trúc ít tự chủ nhất mà vẫn giải quyết đúng bài toán; điểm pass rate chính thức trên bộ hidden sẽ chờ grader của giảng viên chấm.

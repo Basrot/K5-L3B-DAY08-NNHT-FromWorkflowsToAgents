@@ -9,7 +9,7 @@
 - Pass rate / pass^5 / seed min-max / variance: workflow 70/70 = 1,000 / 14/14 = 1,000 / 1,000–1,000 / 0,000000
 - Cost per success (mô phỏng, VND): workflow 27,86; single 30,36; orchestrator 47,90; swarm 49,57
 - Crash safety: 20/20 (src/reports/crash.json); T12 workflow pass trong student tests
-- Secret leak / approval bypass: không phát hiện trong 70 trial public của workflow; hidden chưa có kết quả
+- Secret leak / approval bypass: không phát hiện trong 70 trial public của workflow; tự kiểm `student_drop` (`src/reports/hidden_selfcheck.json`) trên 200 trial đạt 0 error, 0 leak_suspect, 200/200 trace hợp lệ (nhãn hidden do giảng viên chấm)
 
 Ví dụ một dòng đã điền: `- Shape chọn: workflow`, `- Crash safety: 20/20 (src/reports/crash.json)`.
 

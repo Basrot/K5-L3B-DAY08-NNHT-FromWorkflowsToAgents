@@ -61,7 +61,9 @@ Nhóm chạy bốn shape trên cùng 14 claim public và seed `11,22,33,44,55`. 
 | Orchestrator | 70/70 | 14/14 | 1,000–1,000 | 0 | 47,90 | 3,71 / 4 |
 | Swarm | 69/70 | 13/14 | 0,929–1,000 | 0,000816 | 49,57 | 2,80 / 3 |
 
-`python -m pytest -q` đạt 81 test host pass; bộ student đạt 248/248. `src/reports/crash.json` ghi `crash_safety` 20/20. Swarm trượt C-002 ở seed 55 vì tin số ngày trễ trong ticket. Nhóm chưa có kết quả hidden; latency là `unavailable`.
+`python -m pytest -q` đạt 82 test host pass; bộ student đạt 248/248. `src/reports/crash.json` ghi `crash_safety` 20/20. Swarm trượt C-002 ở seed 55 vì tin số ngày trễ trong ticket; latency là `unavailable`.
+
+**Tự kiểm trên bộ hidden không nhãn (`student_drop/` → `src/reports/hidden_selfcheck.json`):** Cả ba shape `workflow`, `single` và `orchestrator` đều hoàn thành trọn vẹn 40 claim × 5 seed = 200 trial/shape với `error_trials = 0`, `leak_suspect_trials = 0`, 100% trace đạt chuẩn `Trace contract v1` và thống nhất tuyệt đối về phân bố trạng thái trên toàn bộ 200 cặp `(claim_id, seed)`: `denied: 95`, `resolved: 90`, `escalated: 10`, `needs_info: 5` (số bước trung bình/p95 lần lượt là `4,53 / 5`, `2,90 / 3`, `3,88 / 4`; tổng chi phí mô phỏng `5.800,0`, `6.295,6` và `9.982,6 VND`). Kết quả pass rate chính thức trên bộ hidden do grader riêng của giảng viên chấm.
 
 Quyết định kiến trúc và lý do: xem `report/team/decision_adr.md`. Phiếu nghiên cứu và ablation: xem `report/team/research_card.md`.
 
