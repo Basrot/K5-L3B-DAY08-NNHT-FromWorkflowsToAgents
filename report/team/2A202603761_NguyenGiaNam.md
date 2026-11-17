@@ -25,7 +25,7 @@
 
 ## 5. Công cụ AI đã dùng
 
-- Mình dùng Codex để đọc yêu cầu, hỗ trợ viết test và chạy các lệnh kiểm ở mục 4. Trước khi nộp, mình sẽ tự đọc lại test và chạy lại các lệnh để kiểm tra kết quả.
+- Mình dùng Codex để đọc yêu cầu và hỗ trợ viết test. Sau đó mình tự chạy lại các lệnh ở mục 4 trên máy: 2 test mới pass, cổng host 56 test pass và crash suite đạt 20/20.
 
 ## 6. Tự đánh giá
 
