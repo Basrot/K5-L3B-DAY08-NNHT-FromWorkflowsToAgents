@@ -11,7 +11,7 @@
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 | Thiều Thế Ngọc | 2A202603788 | 26ai.ngoctt@vinuni.edu.vn | BFNGOC | workflow + integration |
+|   1 | Thiều Thế Ngọc | 2A202603788 | 26ai.ngoctt@vinuni.edu.vn | BFNGOC2 | workflow + integration |
 |   2 | Trần Trọng Đức Tài | 2A202603732 | 26ai.taittd@vinuni.edu.vn | DucTai2804 | single |
 |   3 | Đào Ngọc Hân | 2A202603779 | daongochan1505@gmail.com | daongochan | orchestrator + handoff |
 |   4 | Nguyễn Gia Nam | 2A202603761 | 26ai.namng@vinuni.edu.vn | Basrot | ledger + evaluation |
