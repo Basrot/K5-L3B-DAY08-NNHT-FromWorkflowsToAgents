@@ -5,7 +5,7 @@
 - Tên nhóm: NNHT
 - Lớp: L3B
 - Repo nhóm: `K5-L3B-DAY08-NNHT-FromWorkflowsToAgents` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt: https://github.com/Basrot/K5-L3B-DAY08-NNHT-FromWorkflowsToAgents (nhánh `main`, commit chốt `c85b5c2`)
+- URL repo, nhánh nộp, commit chốt: https://github.com/Basrot/K5-L3B-DAY08-NNHT-FromWorkflowsToAgents (nhánh `main`, commit chốt `a7ffc66`)
 
 ## Thành viên
 
