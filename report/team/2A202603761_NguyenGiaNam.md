@@ -16,6 +16,7 @@
 - Thêm hai test về giới hạn hoàn tiền theo đơn và approval hết hạn trong `src/tests/test_ledger_order_budget.py`.
 - Chạy crash suite, kiểm các shape sau khi nhóm ghép code và chạy benchmark đủ bốn shape.
 - Làm ablation R2: so swarm gốc với bản chỉ dùng số ngày trễ từ order, rồi ghi kết quả vào research card.
+- Từ kết quả benchmark public, đề xuất workflow vì cùng đạt 70/70 trial như single và orchestrator nhưng có mức tự chủ và chi phí mô phỏng thấp hơn.
 
 ## 4. Bằng chứng
 
@@ -27,8 +28,8 @@
 
 ## 5. Công cụ AI đã dùng
 
-- Em dùng Codex để đọc yêu cầu, hỗ trợ viết test, ablation và báo cáo. Em đã tự chạy lại hai test ledger, cổng host và crash suite. Codex chạy benchmark cuối và ablation; em cần tự xem lại số liệu trước khi nộp.
+- Em dùng Codex để đọc yêu cầu, hỗ trợ viết test, ablation và báo cáo. Em tự chạy lại hai test ledger, cổng host và crash suite; kết quả lần lượt là 2/2 test pass, 56 host tests pass và crash 20/20. Codex hỗ trợ chạy benchmark cuối và ablation; số liệu được lấy từ các file JSON do công cụ của lab tạo, không sửa tay.
 
 ## 6. Tự đánh giá
 
-Em đã hoàn thành hai test ledger và approval, tự chạy kiểm tra phần host và crash suite. Sau khi nhóm ghép đủ code, kết quả kiểm thử public và benchmark bốn shape đã có để so sánh. Em còn cần tự xem lại số liệu cuối và cùng nhóm giải thích lý do chọn workflow trong ADR.
+Em đã hoàn thành phần kiểm thử ledger, approval, crash và đánh giá bốn shape theo phân công. Qua hai test đã thêm, em kiểm tra được rằng shape phải truyền quote đầy đủ cho host; host sẽ giới hạn số tiền theo approval và tổng refund của đơn, đồng thời retry không được tạo thêm refund. Trên bộ public, workflow, single và orchestrator đều pass 70/70 trial, nhưng workflow có chi phí mô phỏng thấp nhất và mức tự chủ thấp nhất nên nhóm chọn workflow. Kết luận này chỉ áp dụng cho dữ liệu giả và MockLLM của lab; kết quả hidden có thể làm quyết định thay đổi.
