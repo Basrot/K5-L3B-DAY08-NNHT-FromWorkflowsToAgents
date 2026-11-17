@@ -29,4 +29,4 @@
 
 ## 6. Tự đánh giá
 
-Mình đã hoàn thành hai test cho phần ledger và approval, sau đó tự chạy lại trên máy. Hai test mới đều pass, cổng host có 56 test pass và crash suite đạt 20/20. Phần đánh giá của mình vẫn chưa xong vì ba shape của nhóm chưa được tích hợp; khi các bạn hoàn thiện, mình sẽ chạy student tests và benchmark để kiểm tra tiếp.
+Mình đã hoàn thành hai test cho phần ledger và approval, sau đó tự chạy lại trên máy. Hai test mới đều pass, cổng host có 56 test pass và crash suite đạt 20/20 ở lần kiểm tra đó. Phần đánh giá của mình vẫn chưa xong vì chưa kiểm thử tích hợp và benchmark đủ bốn shape; khi nhóm hoàn thiện các shape còn lại, mình sẽ làm tiếp.
