@@ -4,7 +4,7 @@
 
 - Họ tên: Đào Ngọc Hân
 - MSSV: 2A202603779
-- Email: daongochan1505@gmail.com
+- Email: 26ai.handn@vinuni.edu.vn
 - GitHub: daongochan
 
 ## 2. Phần việc phụ trách
@@ -41,4 +41,4 @@
 
 ## 6. Tự đánh giá
 
-<!-- Bạn tự viết vài câu đánh giá ngắn tại đây sau khi tự kiểm tra (theo RULES.md không dùng AI viết thay mục Tự đánh giá). -->
+Em đã hoàn thành phần cài đặt Shape C (`orchestrator`), xử lý lọc dữ liệu `handoff` theo allowlist và viết thêm các test kiểm tra rò rỉ secret, PII cùng kịch bản crash. Khi chạy kiểm tra trên máy thì cả 62 test của `orchestrator` và các test cổng host đều pass, mở thử các file trace trong `src/traces/` cũng không thấy lọt `parent_secret` hay thông tin cá nhân của đơn hàng. Phần còn lại em cần phối hợp cùng nhóm là chờ gộp xong `workflow` để chạy benchmark đủ bốn shape và tự kiểm tra thêm trên bộ `student_drop` khi có dữ liệu.
