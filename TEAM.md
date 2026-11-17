@@ -9,21 +9,12 @@
 
 ## Thành viên
 
-<<<<<<< Updated upstream
-| STT | Họ tên | MSSV | Email | GitHub | Vai trò |
-| --: | ------ | ---- | ----- | ------ | ------- |
-|   1 | Thiều Thế Ngọc | 2A202603788 | 26ai.ngoctt@vinuni.edu.vn | BFNGOC2 | workflow + integration |
-|   2 | Trần Trọng Đức Tài | 2A202603732 | 26ai.taittd@vinuni.edu.vn | DucTai2804 | single |
-|   3 | Đào Ngọc Hân | 2A202603779 | 26ai.handn@vinuni.edu.vn | daongochan | orchestrator + handoff |
-|   4 | Nguyễn Gia Nam | 2A202603761 | 26ai.namng@vinuni.edu.vn | Basrot | ledger + evaluation |
-=======
 | STT | Họ tên             | MSSV        | Email                     | GitHub     | Vai trò                |
 | --: | ------------------ | ----------- | ------------------------- | ---------- | ---------------------- |
 |   1 | Thiều Thế Ngọc     | 2A202603788 | 26ai.ngoctt@vinuni.edu.vn | BFNGOC2    | workflow + integration |
 |   2 | Trần Trọng Đức Tài | 2A202603732 | 26ai.taittd@vinuni.edu.vn | DucTai2804 | single                 |
-|   3 | Đào Ngọc Hân       | 2A202603779 | daongochan1505@gmail.com  | daongochan | orchestrator + handoff |
+|   3 | Đào Ngọc Hân       | 2A202603779 | 26ai.handn@vinuni.edu.vn  | daongochan | orchestrator + handoff |
 |   4 | Nguyễn Gia Nam     | 2A202603761 | 26ai.namng@vinuni.edu.vn  | Basrot     | ledger + evaluation    |
->>>>>>> Stashed changes
 
 Gợi ý chia vai:
 
@@ -34,21 +25,12 @@ Gợi ý chia vai:
 
 `python -m lab8.check_submission` đọc bảng này bằng máy: giữ nguyên tiêu đề `## Bảng đóng góp` và các cột. Mỗi người một dòng: commit có nội dung và ít nhất một test đã thêm hoặc sửa.
 
-<<<<<<< Updated upstream
-| Người | Vai | Commit | Test đã thêm hoặc sửa |
-| --- | --- | --- | --- |
-| Thiều Thế Ngọc | workflow + integration | | |
-| Trần Trọng Đức Tài | single | 41669db | `test_single_agent_ignores_ticket_hallucination`; `test_single_agent_trace_safety_and_contract` |
-| Đào Ngọc Hân | orchestrator + handoff | fb10ddd | `test_orchestrator_handoff_allowlist_and_no_secret_or_pii_leak`; `test_orchestrator_ignores_untrusted_ticket_claims_across_all_seeds`; `test_orchestrator_crash_and_resume_preserves_single_refund` |
-| Nguyễn Gia Nam | ledger + evaluation | e67183f | `test_approval_and_order_caps_apply_across_successive_claims`; `test_repeated_expired_approval_denial_never_writes_refund` |
-=======
-| Người              | Vai                    | Commit                    | Test đã thêm hoặc sửa                                                                                                      |
-| ------------------ | ---------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| Thiều Thế Ngọc     | workflow + integration | `837c75f` (`feat: CP2-3`) | Chưa có test cá nhân thêm/sửa                                                                                              |
-| Trần Trọng Đức Tài | single                 | 41669db                   | `test_single_agent_ignores_ticket_hallucination`; `test_single_agent_trace_safety_and_contract`                            |
-| Đào Ngọc Hân       | orchestrator + handoff |                           |                                                                                                                            |
-| Nguyễn Gia Nam     | ledger + evaluation    | e67183f                   | `test_approval_and_order_caps_apply_across_successive_claims`; `test_repeated_expired_approval_denial_never_writes_refund` |
->>>>>>> Stashed changes
+| Người              | Vai                    | Commit    | Test đã thêm hoặc sửa                                                                                                                                                                               |
+| ------------------ | ---------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Thiều Thế Ngọc     | workflow + integration | `837c75f` | `test_workflow_full_quote_is_capped_once_and_retry_is_idempotent`                                                                                                                                   |
+| Trần Trọng Đức Tài | single                 | 41669db   | `test_single_agent_ignores_ticket_hallucination`; `test_single_agent_trace_safety_and_contract`                                                                                                     |
+| Đào Ngọc Hân       | orchestrator + handoff | fb10ddd   | `test_orchestrator_handoff_allowlist_and_no_secret_or_pii_leak`; `test_orchestrator_ignores_untrusted_ticket_claims_across_all_seeds`; `test_orchestrator_crash_and_resume_preserves_single_refund` |
+| Nguyễn Gia Nam     | ledger + evaluation    | e67183f   | `test_approval_and_order_caps_apply_across_successive_claims`; `test_repeated_expired_approval_denial_never_writes_refund`                                                                          |
 
 ## Cá nhân
 
