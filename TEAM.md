@@ -13,7 +13,7 @@
 | --: | ------ | ---- | ----- | ------ | ------- |
 |   1 | Thiều Thế Ngọc | 2A202603788 | 26ai.ngoctt@vinuni.edu.vn | BFNGOC2 | workflow + integration |
 |   2 | Trần Trọng Đức Tài | 2A202603732 | 26ai.taittd@vinuni.edu.vn | DucTai2804 | single |
-|   3 | Đào Ngọc Hân | 2A202603779 | daongochan1505@gmail.com | daongochan | orchestrator + handoff |
+|   3 | Đào Ngọc Hân | 2A202603779 | 26ai.handn@vinuni.edu.vn | daongochan | orchestrator + handoff |
 |   4 | Nguyễn Gia Nam | 2A202603761 | 26ai.namng@vinuni.edu.vn | Basrot | ledger + evaluation |
 
 Gợi ý chia vai:
@@ -29,7 +29,7 @@ Gợi ý chia vai:
 | --- | --- | --- | --- |
 | Thiều Thế Ngọc | workflow + integration | | |
 | Trần Trọng Đức Tài | single | 41669db | `test_single_agent_ignores_ticket_hallucination`; `test_single_agent_trace_safety_and_contract` |
-| Đào Ngọc Hân | orchestrator + handoff | | |
+| Đào Ngọc Hân | orchestrator + handoff | fb10ddd | `test_orchestrator_handoff_allowlist_and_no_secret_or_pii_leak`; `test_orchestrator_ignores_untrusted_ticket_claims_across_all_seeds`; `test_orchestrator_crash_and_resume_preserves_single_refund` |
 | Nguyễn Gia Nam | ledger + evaluation | e67183f | `test_approval_and_order_caps_apply_across_successive_claims`; `test_repeated_expired_approval_denial_never_writes_refund` |
 
 ## Cá nhân
@@ -84,11 +84,14 @@ Sao chép mục dưới đây cho từng thành viên.
 
 ### Đóng góp cụ thể
 
--
+- Cài đặt Shape C (`src/lab8/shapes/orchestrator.py`) với `make_handoff` allowlist, Investigator chỉ có quyền đọc (`lookup_order`, `lookup_policy`), truyền quote đầy đủ và `crash_at` vào `durability.issue_refund`, ghi trace đúng Trace contract v1 không lộ secret/PII.
+- Thêm bộ kiểm thử `src/tests/test_orchestrator_handoff.py` (21 test case) cho handoff allowlist, kháng ticket không đáng tin trên 5 seed, trần hoàn tiền theo đơn và khôi phục sau crash.
 
 ### Bằng chứng
 
--
+- Commit kỹ thuật: `fb10ddd` (khởi tạo `TEAM.md`: `50b9db9`, `ded3408`).
+- `src/lab8/shapes/orchestrator.py`; `src/tests/test_orchestrator_handoff.py` (`62/62` test student `orchestrator` pass).
+- Báo cáo cá nhân: `report/team/2A202603779_DaoNgocHan.md`.
 
 ## 2A202603761_NguyenGiaNam
 
